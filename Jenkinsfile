@@ -28,7 +28,7 @@ pipeline{
             echo 'Image pushed successfully'
         }
         failure{
-        echo'Failed in testing'
+            echo'Failed in testing'
         }
     }
     }
