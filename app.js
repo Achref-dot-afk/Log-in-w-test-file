@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('./models/User');
+const path = require('path');
 const app = express();
 
 app.use(express.json());
@@ -19,7 +20,7 @@ app.post('/add-user', async (req, res) => {
 });
 
 // Serve the welcome page
-app.get('/add-user', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
