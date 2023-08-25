@@ -17,19 +17,19 @@ pipeline{
                 echo 'testing done'
             }
         }
+    }
     post{
         success{
             echo("Logging to docker hub")
-            sh' docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-            echo ' Logged in successfully '
-            sh' docker build -t $DOCKERHUB_USERNAME/Log-in-docker:lts .'
+            sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
+            echo 'Logged in successfully'
+            sh 'docker build -t $DOCKERHUB_USERNAME/Log-in-docker:lts .'
             echo 'Image built successfully'
-            sh' docker push $DOCKERHUB_USERNAME/my-docker-image:lts'
+            sh 'docker push $DOCKERHUB_USERNAME/Log-in-docker:lts'
             echo 'Image pushed successfully'
         }
         failure{
-            echo'Failed in testing'
+            echo 'Failed in testing'
         }
-    }
     }
 }
