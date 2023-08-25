@@ -27,6 +27,7 @@ pipeline{
             echo 'Image built successfully'
             sh 'docker push $DOCKERHUB_USERNAME/log-in-docker:lts'
             echo 'Image pushed successfully'
+            sh 'docker run -d -p 3000:3000 $DOCKERHUB_USERNAME/log-in-docker:lts'
         }
         failure{
             echo 'Failed in testing'
